@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>blood availability</title>
+
+	<link rel="stylesheet" type="text/css" href="{% static '/styles.css' %}">
+	<script type="text/javascript">
+
+		function refreshPage(){
+
+				location.reload();			
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="login-page">
+
+ 		<div class="form">  
+
+				<form class="register-form" method="POST" action="page2/" >
+						{% csrf_token %}
+						<h2>LOGIN INFORMATION</h2>		
+		  
+						<input type="text" placeholder="user name" name="username" required>  	
+		  
+						<input type="email" placeholder="email-id" name="emailid" required>
+		  
+						<input type="password" placeholder="password" name="password" required>
+		  
+						<h2>DONOR INFORMATION</h2>
+						<input type="text" placeholder="Your blood group" name="bloodgroup" required>
+		  
+						<h2>CONTACT INFORMATION</h2>
+		  
+						<input type="text" placeholder="phone-number" name="phonenumber" required>
+		  
+						<input type="text" placeholder="residence address" name="address" required>
+		  
+						<input type="text" placeholder="city" name="city" required>
+		  
+						<!-- <button>register</button> -->
+		  
+					  	<input id="abc" type="submit" value="Register">
+		  
+						 <p class="message">already registered?<a href="#">login</a></p>
+		  
+						</form>
+		
+						<form class="login-form" action="{% url 'whos' %}" method="POST">
+		  					{%csrf_token%}
+							<h2>LOGIN</h2>
+		  
+						<input type="text" name="username" placeholder="username" required>
+	
+						<input type="password" name="password" placeholder="password" required>
+		  
+						<input id="abc" type="submit" value="login">
+		  
+						<p class="message">not registered?<a href="#">register</a></p>
+		  
+		  
+		  
+				</form>
+  		</div>
+
+  	</div>
+
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js">
+
+	</script>	
+
+	<script>
+	$('.message a').click(function(){
+
+	$('form').animate({height:"toggle", opacity:"toggle"});	
+
+	});
+
+	</script>
+
+</body>
+
+</html>

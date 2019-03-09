@@ -1,0 +1,38 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Who are you?</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static '/styles2.css' %}">
+
+</head>
+
+<body>
+
+	<div class="abc">
+
+	<h1>Would you like to</h1>
+
+	<!-- <button type="button" class="btn btn-success btn-lg">DONATE </button>
+
+    <button type="button" class="btn btn-secondary btn-lg">REQUEST</button> -->
+    <form method="POST" action="{% url 'don' %}">
+            {%csrf_token%}
+        <input type="submit" id="abc" value="Donate">
+    </form>
+    <form method="POST" action="{% url 'req' %}">
+            {%csrf_token%}
+        <input type="submit" id="abc" value="Request">
+    </form>
+	</div>
+
+
+
+</body>
+
+</html>
